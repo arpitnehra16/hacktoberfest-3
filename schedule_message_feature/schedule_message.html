@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scheduled Messaging</title>
+</head>
+<body>
+  <h1>Scheduled Messaging</h1>
+  
+  <h2>Create a Scheduled Message</h2>
+  <form id="scheduleForm">
+    <input type="text" id="message" placeholder="Message" required><br><br>
+    <input type="datetime-local" id="dateTime" required><br><br>
+    <button type="button" onclick="scheduleMessage()">Schedule</button>
+  </form>
+</body>
+<script>
+function scheduleMessage() {
+    const message = document.getElementById('message').value;
+    const dateTime = document.getElementById('dateTime').value;
+    
+    // Validate input
+    if (!message || !dateTime) {
+        alert("Please fill in all fields.");
+        return;
+    }
+    
+    // Convert date-time to a timestamp
+    const timestamp = new Date(dateTime).getTime();
+    
+    // Send the message and timestamp to the server (use AJAX, fetch, or other methods)
+    // Example: sendScheduledMessageToServer(message, timestamp);
+    
+    // Display a confirmation to the user
+    alert("Message scheduled successfully.");
+    
+    // Clear the form
+    document.getElementById('message').value = '';
+    document.getElementById('dateTime').value = '';
+}
+</script>
+</html>
